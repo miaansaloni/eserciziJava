@@ -1,4 +1,4 @@
-package Esempio_Counter;
+
 public class Counter{
     private int val;
     public void reset(){
