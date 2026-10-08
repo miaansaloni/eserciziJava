@@ -9,7 +9,9 @@ public class FrequenzaCarattere {
         String numero = args[0];
 
         if(numero.matches("[0-9]{10}")== false){
-            
+            System.out.println("Numero errato: inserire un numero");
+            System.out.println();
+            System.exit(2);
         }
         
         int[] frequenze = new int[10];
