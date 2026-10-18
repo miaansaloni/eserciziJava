@@ -1,25 +1,32 @@
 public class Orologio {
-    private Counter ore, min;
-    public Orologio() {
-    ore = new Counter(); min = new Counter();
-}
+    private Counter ore, minuti;
 
-public void reset() {
-    ore.reset();
-    min.reset();
-} 
-
-public void tic() {
-    min.inc();
-    if (min.getValue() == 60)
-    {
-        min.reset();
-        ore.inc();
+    public Orologio(){
+        ore = new Counter();
+        minuti = new Counter();
     }
-    if (ore.getValue() == 24)
-        ore.reset(); 
-}
 
-public int getOre() { return ore.getValue(); }
-public int getMinuti() { return min.getValue(); }
+    public void reset(){
+        ore.reset();
+        minuti.reset();
+    }
+
+    public void tic(){
+        minuti.inc();
+        if (minuti.getValue() == 60){
+            minuti.reset();
+            ore.inc();
+        }
+        if(ore.getValue() == 24){
+            ore.reset();
+        }
+    }
+
+    public int getMinuti(){
+        return minuti.getValue();
+    }
+
+    public int getOre(){
+        return ore.getValue();
+    }
 }
