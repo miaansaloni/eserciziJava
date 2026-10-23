@@ -1,5 +1,5 @@
 //sottoclasse concreta di PoliticaSconto
-public class ScontoQuantita extends PoliticaSconto {
+public class ScontoQuantita implements PoliticaSconto {
     //campi (attributi) d'istanza per salvare lo stato
     private int minimo;
     private double percentuale;

@@ -1,4 +1,4 @@
-public abstract class PoliticaSconto{
+public interface PoliticaSconto{
 
-    public abstract double calcolaSconto(int numeroArticoli, double prezzoArticolo);
+    public double calcolaSconto(int numeroArticoli, double prezzoArticolo);
 }

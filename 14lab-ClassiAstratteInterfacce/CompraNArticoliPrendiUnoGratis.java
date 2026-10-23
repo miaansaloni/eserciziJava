@@ -1,4 +1,4 @@
-public class CompraNArticoliPrendiUnoGratis extends PoliticaSconto{
+public class CompraNArticoliPrendiUnoGratis implements PoliticaSconto{
     private int n;
 
     //costruttore:
