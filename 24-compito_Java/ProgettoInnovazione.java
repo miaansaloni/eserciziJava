@@ -6,7 +6,7 @@ public class ProgettoInnovazione extends Progetto{
         this.aziende=aziende;
     }
 
-    public int getAziende(){
-        return aziende;
-    }
+    public int getAziende(){return aziende;}
+
+    public String toString() { return getTipo() + " " + getTitolo() + " " + getCodice() + " " + getCoordinatore() + " " + getOrganizzazione() + " - - " + aziende + " " + getImportoMigliaia(); }
 }

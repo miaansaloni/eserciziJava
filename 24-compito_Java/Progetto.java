@@ -15,29 +15,14 @@ public class Progetto {
         this.importoTotale = importoTotale;
     }
 
-    public int getCodice(){
-        return codice;
-    }
+    public int getCodice(){return codice;}
+    public String getTipo(){return tipo;}
+    public String getTitolo(){return titolo;}
+    public String getCoordinatore(){return coordinatore;}
+    public String getOrganizzazione(){return organizzazione;}
+    public double importoTotale(){return importoTotale;}
 
-    public String getTipo(){
-        return tipo;
+    public double getImportoMigliaia(){
+        return importoTotale * 1000.0;
     }
-
-    public String getTitolo(){
-        return titolo;
-    }
-
-    public String getCoordinatore(){
-        return coordinatore;
-    }
-    
-    public String getOrganizzazione(){
-        return organizzazione;
-    }
-
-    public double importoTotale(){
-        return importoTotale;
-    }
-
-    
 }

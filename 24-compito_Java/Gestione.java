@@ -1,15 +1,20 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Gestione {
     public static void main(String[] args) {
 
         //struttura dati per memorizzare i progetti letti dal file
         Map<Integer, Progetto> mappaProgetti = new HashMap<>();
+
+        //struttura dati per memorizzare i ricercatori letti dal file
+        List<Ricercatore> listaRicercatori = new ArrayList<>();
 
         //---------- Lettura del file progetti.txt ----------//
         try(BufferedReader br=new BufferedReader(new FileReader("progetti.txt"))){
@@ -64,5 +69,51 @@ public class Gestione {
         } catch (IOException e){
             System.out.println("Errore durante la lettura del file progetti.txt: "+ e.getMessage());
         }
+
+        //---------- Lettura del file progetti.txt ----------//
+        try(BufferedReader br=new BufferedReader(new FileReader("ricercatori.txt"))){
+            String line =br.readLine();
+
+            while(line != null){
+
+                //ignora eventuali righe vuote tra un ricercatore e l'altro
+                if(line.trim().isEmpty()){
+                    line=br.readLine();
+                    continue;
+                }
+
+                //riga 1 (nome) e riga 2 (cognome)
+                String nome=line;
+                String cognome=br.readLine();
+
+                Ricercatore r = new Ricercatore(nome, cognome);
+
+                //Legge i progetti e le ore finché non trova una riga vuota o la fine del file
+                line=br.readLine();
+                while(line!=null && !line.trim().isEmpty()){
+                    StringTokenizer tok= new StringTokenizer(line);
+                    int codiceProgetto = Integer.parseInt(tok.nextToken());
+                    double ore=Double.parseDouble(tok.nextToken());
+
+                    r.aggiungiImpegno(new Impegno(codiceProgetto, ore));
+
+                    line=br.readLine();
+                }
+
+                //SALVA il ricercatore popolato nella lista
+                listaRicercatori.add(r);
+            }
+            System.out.println("Ricercatori caricati: " + listaRicercatori.size());
+
+        }catch (IOException e){
+            System.out.println("Errore durante la lettura del file ricercatori.txt: " + e.getMessage());
+        }
+
+        //---------- Stampa della tabella dei progtti ----------//
+        System.out.println("tipo, titolo, codice, coordinatore, organizzazione, argomento, partner, aziende, importo totale in migliaia di euro"); 
+        
+        for (Progetto p : mappaProgetti.values()) 
+            { System.out.println(p);}
+
     }
 }

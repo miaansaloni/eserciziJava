@@ -8,11 +8,10 @@ public class ProgettoRicerca extends Progetto {
         this.partner=partner;
     }
 
-    public String getArgomento(){
-        return argomento;
-    }
+    public String getArgomento(){return argomento;}
+    public int getPartner(){return partner;}
 
-    public int getPartner(){
-        return partner;
+    public String toString(){
+        return getTipo() + " " + getTitolo() + " " + getCodice() + " " + getCoordinatore() + " " + getOrganizzazione() + " " + argomento + " " + partner + " " + getImportoMigliaia(); 
     }
 }
