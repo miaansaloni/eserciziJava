@@ -109,11 +109,21 @@ public class Gestione {
             System.out.println("Errore durante la lettura del file ricercatori.txt: " + e.getMessage());
         }
 
-        //---------- Stampa della tabella dei progtti ----------//
+
+        //---------- Stampa della tabella dei progtti (PUNTO 3) ----------//
         System.out.println("tipo, titolo, codice, coordinatore, organizzazione, argomento, partner, aziende, importo totale in migliaia di euro"); 
         
         for (Progetto p : mappaProgetti.values()) 
-            { System.out.println(p);}
+            { System.out.println(p);} //viene invocato toString() automaticamente
+
+
+        //---------- Stampa dell'elenco dei ricercatori (PUNTO 4) ----------//
+        for(Ricercatore r : listaRicercatori){
+            System.out.println(r); //che invoca r.toString in automatico
+        }
+
+
+        //---------- Ricerca per cognome da riga di comando (PUNTO 5) ----------//
 
     }
 }
