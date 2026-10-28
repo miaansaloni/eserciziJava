@@ -112,7 +112,6 @@ public class Gestione {
 
         //---------- Stampa della tabella dei progtti (PUNTO 3) ----------//
         System.out.println("tipo, titolo, codice, coordinatore, organizzazione, argomento, partner, aziende, importo totale in migliaia di euro"); 
-        
         for (Progetto p : mappaProgetti.values()) 
             { System.out.println(p);} //viene invocato toString() automaticamente
 
@@ -124,6 +123,23 @@ public class Gestione {
 
 
         //---------- Ricerca per cognome da riga di comando (PUNTO 5) ----------//
+        if(args.length > 0){
+            String cognomeCercato = args[0];
 
+            for(Ricercatore r : listaRicercatori){
+
+                if(r.getCognome().equalsIgnoreCase(cognomeCercato)){
+                    Impegno maxImpegno=r.getImpegnoMax();
+
+                    if(maxImpegno != null){
+                        int codiceProgetto = maxImpegno.getCodiceProgetto();
+                        Progetto p = mappaProgetti.get(codiceProgetto);
+                        System.out.println("Punto 5: " + r.getNome() + " " + r.getCognome() + " " + maxImpegno.getOre() + " " + p.getTitolo());
+                    }
+                }
+            }
+        } else {
+            System.out.println("Nessun cognome passato per riga di comando");
+        }
     }
 }
