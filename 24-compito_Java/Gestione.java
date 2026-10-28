@@ -71,42 +71,43 @@ public class Gestione {
         }
 
         //---------- Lettura del file progetti.txt ----------//
-        try(BufferedReader br=new BufferedReader(new FileReader("ricercatori.txt"))){
-            String line =br.readLine();
+        //---------- Lettura del file ricercatori.txt (PUNTO 2) ----------// 
+        try (BufferedReader br = new BufferedReader(new FileReader("ricercatori.txt"))) { 
+            String line = br.readLine(); 
 
-            while(line != null){
+            while (line != null) { 
+                
+                // Ignora eventuali righe vuote o con soli spazi tra un ricercatore e l'altro 
+                if (line.trim().isEmpty()) { 
+                    line = br.readLine(); 
+                    continue; 
+                } 
+                // Riga 1 (nome) e Riga 2 (cognome) ripulite da spazi invisibili e \\r 
+                String nome = line.trim(); 
+                String prossimaRiga = br.readLine(); 
+                if (prossimaRiga == null) { 
+                    break; // Protezione se il file termina inaspettatamente 
+                } 
+                String cognome = prossimaRiga.trim(); 
+                
+                // Creazione dell'oggetto Ricercatore con stringhe "pulite" 
+                Ricercatore r = new Ricercatore(nome, cognome); 
 
-                //ignora eventuali righe vuote tra un ricercatore e l'altro
-                if(line.trim().isEmpty()){
-                    line=br.readLine();
-                    continue;
-                }
-
-                //riga 1 (nome) e riga 2 (cognome)
-                String nome=line;
-                String cognome=br.readLine();
-
-                Ricercatore r = new Ricercatore(nome, cognome);
-
-                //Legge i progetti e le ore finché non trova una riga vuota o la fine del file
-                line=br.readLine();
-                while(line!=null && !line.trim().isEmpty()){
-                    StringTokenizer tok= new StringTokenizer(line);
-                    int codiceProgetto = Integer.parseInt(tok.nextToken());
-                    double ore=Double.parseDouble(tok.nextToken());
-
-                    r.aggiungiImpegno(new Impegno(codiceProgetto, ore));
-
-                    line=br.readLine();
-                }
-
-                //SALVA il ricercatore popolato nella lista
-                listaRicercatori.add(r);
-            }
-            System.out.println("Ricercatori caricati: " + listaRicercatori.size());
-
-        }catch (IOException e){
-            System.out.println("Errore durante la lettura del file ricercatori.txt: " + e.getMessage());
+                // Legge gli impegni (codice progetto e ore) finché non trova una riga vuota o fine file 
+                line = br.readLine(); 
+                while (line != null && !line.trim().isEmpty()) { 
+                    StringTokenizer tok = new StringTokenizer(line); 
+                    int codiceProgetto = Integer.parseInt(tok.nextToken()); 
+                    double ore = Double.parseDouble(tok.nextToken()); 
+                    r.aggiungiImpegno(new Impegno(codiceProgetto, ore)); 
+                    line = br.readLine(); 
+                } 
+                // SALVA il ricercatore popolato nella lista 
+                listaRicercatori.add(r); 
+            } 
+            System.out.println("Ricercatori caricati: " + listaRicercatori.size()); 
+        } catch (IOException e) { 
+            System.out.println("Errore durante la lettura del file ricercatori.txt: " + e.getMessage()); 
         }
 
 
