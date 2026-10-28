@@ -70,7 +70,6 @@ public class Gestione {
             System.out.println("Errore durante la lettura del file progetti.txt: "+ e.getMessage());
         }
 
-        //---------- Lettura del file progetti.txt ----------//
         //---------- Lettura del file ricercatori.txt (PUNTO 2) ----------// 
         try (BufferedReader br = new BufferedReader(new FileReader("ricercatori.txt"))) { 
             String line = br.readLine(); 
