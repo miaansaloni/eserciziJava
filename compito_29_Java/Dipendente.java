@@ -1,20 +1,32 @@
-public class Dipendente{
-    int codice;
-    String nome;
-    double costo_orario;
+import java.util.*;
 
-    //costruttore
-    public Dipendente(int codice, String nome, double costo_orario){
-        this.codice=codice;
-        this.nome=nome;
-        this.costo_orario=costo_orario;
-    }
+public abstract class Dipendente {
+	
+	protected int codice;
+	protected String  nome;
+	protected double costo;
+	protected String tipo;
 
-    public double getCosto(){
-        return costo_orario;
-    }
-
-    public String toString(){
-        return String.format("%20s %4d", nome, codice);
-    }
+	
+	public Dipendente(int codice,  String nome, String tipo,  double costo){
+    	this.codice=codice;
+		this.nome=nome;
+		this.costo=costo;
+		this.tipo=tipo;
+		}
+	public double getCosto()
+	{
+		return costo;
+	}
+		public int getCod()
+	{
+		return codice;
+	}
+	public String getNome()
+	{
+		return nome;
+	}
+	public String toString(){
+		return nome+"\t"+codice+"\t"+tipo;
+	}
 }
