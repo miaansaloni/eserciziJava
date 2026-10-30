@@ -1,6 +1,6 @@
 public class Auto extends Veicolo {
-    protected int cilindrata;
-    protected double bagagliaio;
+    private int cilindrata;
+    private double bagagliaio;
         
     public Auto(int codice, String targa, String modello, String marca, double costo, int cilindrata, double bagagliaio){
         super(codice, targa, modello, marca, costo);

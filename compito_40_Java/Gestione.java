@@ -97,8 +97,22 @@ public class Gestione {
 
         System.out.println("\n\n");
 
-        int targa=Integer.parseInt(args[0]);
-        double tot=codTotale.get(targa);
-        System.out.println(targa+" "+tot);
+        if(args.length == 0){
+            System.out.println("Nessun argomento passato alla linea di comando, per sapere l'importo totale di tutti i noleggi di un veicolo specifico -> java Gestione <codiceVeicolo>");
+        } else {
+            try {
+                int codice = Integer.parseInt(args[0]);
+                Double tot = codTotale.get(codice);
+
+                if(tot == null){
+                    System.out.println("Nessun veicolo con codice " + codice);
+                } else {
+                    System.out.println(codice + " " + tot);
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Il codice veicolo deve essere un numero intero -> "
+                        + "java Gestione <codiceVeicolo>");
+            }
+        }
     }
 }

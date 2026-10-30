@@ -1,6 +1,6 @@
 public class Furgone extends Veicolo {
-    protected String categoria;
-    protected int posti;
+    private String categoria;
+    private int posti;
     private boolean vano;
 
     public Furgone(int codice, String targa, String modello, String marca, double costo, String categoria, int posti, boolean vano){
