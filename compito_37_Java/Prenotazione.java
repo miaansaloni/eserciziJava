@@ -6,4 +6,12 @@ public class Prenotazione {
         this.codiceCampo=codiceCampo;
         this.oraInizio=oraInizio;
     }
+
+    public int getCodiceCampo(){
+        return codiceCampo;
+    }
+
+    public int getOraInizio(){
+        return oraInizio;
+    }
 }

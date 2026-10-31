@@ -10,4 +10,8 @@ public class Socio {
         this.eta=eta;
         this.categoria=categoria;
     }
+
+    public int getCodiceSocio(){
+        return codiceSocio;
+    }
 }

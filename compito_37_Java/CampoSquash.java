@@ -3,8 +3,12 @@ public class CampoSquash extends Campo {
     private int piano;
 
     public CampoSquash(int codice, String sport, String nomeCampo, float larghezza, float lunghezza, float costoOrario, float altezza, int piano){
-        super(codice, sport, nomeCampo, larghezza, lunghezza, costoOrario);
+        super(codice, "squash", nomeCampo, larghezza, lunghezza, costoOrario);
         this.altezza=altezza;
         this.piano=piano;
+    }
+
+    protected String dettagliSpecifici(){
+        return "-\t-\t" + altezza + "\t" + piano;
     }
 }
