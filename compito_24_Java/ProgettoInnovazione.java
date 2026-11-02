@@ -8,5 +8,8 @@ public class ProgettoInnovazione extends Progetto{
 
     public int getAziende(){return aziende;}
 
-    public String toString() { return getTipo() + " " + getTitolo() + " " + getCodice() + " " + getCoordinatore() + " " + getOrganizzazione() + " - - " + aziende + " " + getImportoMigliaia(); }
+    public String toString() {
+        return getTipo() + "\t" + getTitolo() + "\t" + getCodice() + "\t" + getCoordinatore() + "\t" + getOrganizzazione()
+           + "\t-\t-\t" + aziende + "\t" + getImportoMigliaia();
+    }
 }

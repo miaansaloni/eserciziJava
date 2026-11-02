@@ -12,6 +12,7 @@ public class ProgettoRicerca extends Progetto {
     public int getPartner(){return partner;}
 
     public String toString(){
-    return getTipo() + " " + getTitolo() + " " + getCodice() + " " + getCoordinatore() + " " + getOrganizzazione() + " " + argomento + " " + partner + " - " + getImportoMigliaia();
-}
+    return getTipo() + "\t" + getTitolo() + "\t" + getCodice() + "\t" + getCoordinatore() + "\t" + getOrganizzazione()
+         + "\t" + argomento + "\t" + partner + "\t-\t" + getImportoMigliaia();
+    }
 }

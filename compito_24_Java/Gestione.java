@@ -108,8 +108,7 @@ public class Gestione {
 
 
         //---------- Stampa della tabella dei progtti (PUNTO 3) ----------//
-        System.out.println("tipo, titolo, codice, coordinatore, organizzazione, argomento, partner, aziende, importo totale in migliaia di euro"); 
-        for (Progetto p : mappaProgetti.values()) 
+        System.out.println("tipo\ttitolo\tcodice\tcoordinatore\torganizzazione\targomento\tpartner\taziende\timporto totale in migliaia di euro");        for (Progetto p : mappaProgetti.values()) 
             { System.out.println(p);} //viene invocato toString() automaticamente
 
 
@@ -128,14 +127,13 @@ public class Gestione {
 
         boolean trovato = false;
         for(Ricercatore r : listaRicercatori){
-         if(r.getCognome().equalsIgnoreCase(cognomeCercato)){
+            if(r.getCognome().equalsIgnoreCase(cognomeCercato)){
                trovato = true;
                Impegno maxImpegno = r.getImpegnoMax();
                if(maxImpegno != null){
                    Progetto p = mappaProgetti.get(maxImpegno.getCodiceProgetto());
                    String titolo = (p != null) ? p.getTitolo() : "(progetto sconosciuto)";
-                    System.out.println(r.getNome() + " " + r.getCognome() + " " + maxImpegno.getOre() + " " + titolo);
-               }
+                   System.out.println(r.getNome() + "\t" + r.getCognome() + "\t" + maxImpegno.getOre() + "\t" + titolo);               }
          }
         }
         if(!trovato){

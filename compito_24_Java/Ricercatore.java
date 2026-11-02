@@ -32,7 +32,7 @@ public class Ricercatore {
     }
 
     public String toString(){ //punto 4, riga di output finale:
-        return nome +" "+ cognome +" "+ getOreTotali() +" "+ getNumeroProgetti() +" "+ impegni;
+        return nome + "\t" + cognome + "\t" + getOreTotali() + "\t" + getNumeroProgetti() + "\t" + impegni;
     }
 
     public Impegno getImpegnoMax(){
