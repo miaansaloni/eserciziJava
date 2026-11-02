@@ -14,4 +14,8 @@ public class Socio {
     public int getCodiceSocio(){
         return codiceSocio;
     }
+
+    public String toString(){
+        return codiceSocio + "\t" + nomeCognome + "\t" + eta + "\t" + categoria;
+    }
 }

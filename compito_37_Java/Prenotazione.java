@@ -14,4 +14,8 @@ public class Prenotazione {
     public int getOraInizio(){
         return oraInizio;
     }
+
+    public String toString(){
+        return "(" + codiceCampo + "," + oraInizio + ")";
+    }
 }
