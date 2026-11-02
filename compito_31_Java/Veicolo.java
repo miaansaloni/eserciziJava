@@ -1,0 +1,30 @@
+public abstract class Veicolo {
+    private int codice;
+    private String tipo;
+    private String targa;
+    private String modello;
+    private String marca;
+    private double costoGiornaliero;
+
+    public Veicolo(int codice, String tipo, String targa, String modello, String marca, double costoGiornaliero){
+        this.codice=codice;
+        this.tipo=tipo;
+        this.targa=targa;
+        this.modello=modello;
+        this.marca=marca;
+        this.costoGiornaliero=costoGiornaliero;
+    }
+
+    public int getCodice(){return codice;}
+    public String getTipo(){return tipo;}
+    public String getTarga(){return targa;}
+    public String getModello(){return modello;}
+    public String getMarca(){return marca;}
+    public double getCostoGiornaliero(){return costoGiornaliero;}
+
+    //parte comune della riga della tabella (punto 3):
+    //tipo, targa, codice, modello, marca, costo giornaliero
+    protected String datiComuni(){
+        return tipo + "\t" + targa + "\t" + codice + "\t" + modello + "\t" + marca + "\t" + costoGiornaliero;
+    }
+}
