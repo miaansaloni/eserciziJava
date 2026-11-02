@@ -1,11 +1,5 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.StringTokenizer;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
 
 public class Gestione {
     public static void main(String[] args) {
@@ -21,6 +15,9 @@ public class Gestione {
             String line = br.readLine();
 
             while(line != null){
+                if(line.trim().isEmpty()){ 
+                    line = br.readLine(); continue; 
+                }
 
                 //Riga 1 (codice e tipo nello stesso token)
                 StringTokenizer tok = new StringTokenizer(line); //line contiene "1 ricerca"
@@ -123,23 +120,26 @@ public class Gestione {
 
 
         //---------- Ricerca per cognome da riga di comando (PUNTO 5) ----------//
-        if(args.length > 0){
-            String cognomeCercato = args[0];
+        if(args.length == 0){
+            System.out.println("Uso: java Gestione <cognome>");
+         return;
+        }
+        String cognomeCercato = String.join(" ", args).trim(); //cognomi con spazi
 
-            for(Ricercatore r : listaRicercatori){
-
-                if(r.getCognome().equalsIgnoreCase(cognomeCercato)){
-                    Impegno maxImpegno=r.getImpegnoMax();
-
-                    if(maxImpegno != null){
-                        int codiceProgetto = maxImpegno.getCodiceProgetto();
-                        Progetto p = mappaProgetti.get(codiceProgetto);
-                        System.out.println("Punto 5: " + r.getNome() + " " + r.getCognome() + " " + maxImpegno.getOre() + " " + p.getTitolo());
-                    }
-                }
-            }
-        } else {
-            System.out.println("Nessun cognome passato per riga di comando");
+        boolean trovato = false;
+        for(Ricercatore r : listaRicercatori){
+         if(r.getCognome().equalsIgnoreCase(cognomeCercato)){
+               trovato = true;
+               Impegno maxImpegno = r.getImpegnoMax();
+               if(maxImpegno != null){
+                   Progetto p = mappaProgetti.get(maxImpegno.getCodiceProgetto());
+                   String titolo = (p != null) ? p.getTitolo() : "(progetto sconosciuto)";
+                    System.out.println(r.getNome() + " " + r.getCognome() + " " + maxImpegno.getOre() + " " + titolo);
+               }
+         }
+        }
+        if(!trovato){
+            System.out.println("Nessun ricercatore con cognome " + cognomeCercato);
         }
     }
 }
