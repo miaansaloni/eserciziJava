@@ -9,4 +9,8 @@ public class Fuoristrada extends Automobile{
     public int getMarce(){
         return nMarce;
     }
+
+    public String toString(){
+        return codice + "\t" + produttore + "\t" + modello + "\t-\t" + nMarce;
+    }
 }

@@ -10,4 +10,16 @@ public abstract class Automobile {
         this.peso=peso;
         this.codice=codice;
     }
+
+    public int getPeso(){
+        return peso;
+    }
+
+    public String getProduttore(){
+        return produttore;
+    }
+
+    public String getModello(){
+        return modello;
+    }
 }

@@ -9,4 +9,8 @@ public class Berlina extends Automobile{
     public double getBagagliaio(){
         return dimBagagliaio;
     }
+
+    public String toString(){
+        return codice + "\t" + produttore + "\t" + modello + "\t" + dimBagagliaio + "\t-";
+    }
 }
